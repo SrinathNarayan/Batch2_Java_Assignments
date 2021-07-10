@@ -15,7 +15,7 @@ public class JScrollPaneExample extends JFrame
     private JScrollPane Scrl = new JScrollPane(Pnl,
     ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS,
     ScrollPaneConstants.HORIZONTAL_SCROLLBAR_ALWAYS);
-    private JLabel Lbl = new JLabel("JScrollPane in Java Swing Example");
+    private JLabel Lbl = new JLabel("JScrollPane in Java  Example");
     private Font font = new Font("Arial", Font.PLAIN, 20);
     private Container cntnr;
     public JScrollPaneExample()
