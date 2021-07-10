@@ -1,80 +1,60 @@
 package SwingComponents;
 
+import java.awt.Container;
 import java.awt.FlowLayout;
+import java.awt.GridLayout;
 
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTabbedPane;
 import javax.swing.JTextArea;
 
-public class JTabbedPaneExample extends JFrame {
-    JTabbedPane tabs;
-    CoursePanel cource;
-    SelectCoursePanel selectCourse;
+public class JTabbedPaneExample {
+	JTabbedPane tp;
+	JLabel lab1, lab2, lab3, lab4, lab5, lab6, lab7, lab8;
+	JPanel fruit, vegetable;
+	JFrame frame;
+	public void createUI()
+	{
+		frame=new JFrame("JTabbedPane Example");
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-    JTabbedPaneExample() {
-        super("Tabbed Pane Example");
+		fruit = new JPanel(new GridLayout(6,2));
+		lab1=new JLabel("Apple");
+		lab2=new JLabel("Orange");
+		lab3=new JLabel("Papaya");
+		lab4=new JLabel("Pine Apple");
+		fruit.add(lab1);
+		fruit.add(lab2);
+		fruit.add(lab3);
+		fruit.add(lab4);
 
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        
-        // Setting the JTabbedPane Position and Layout as Wrap
-        tabs = new JTabbedPane(JTabbedPane.TOP, JTabbedPane.WRAP_TAB_LAYOUT);
+		vegetable = new JPanel(new GridLayout(6,2));
+		lab5=new JLabel("Cauliflower");
+		lab6=new JLabel("Brinjal");
+		lab7=new JLabel("Peas");
+		lab8=new JLabel("Lady finger");
+		vegetable.add(lab5);
+		vegetable.add(lab6);
+		vegetable.add(lab7);
+		vegetable.add(lab8);
+		
+		tp=new JTabbedPane();
+                Container pane = frame.getContentPane();
+		pane.add(tp);
+		tp.addTab("Fruit",fruit);
+		tp.addTab("Vegetable",vegetable);
 
-        cource = new CoursePanel();
-        selectCourse = new SelectCoursePanel();
-        // Adding user defined pannels to JTabbedPane
-        tabs.addTab("Cources", cource);
-        tabs.addTab("Select Course", selectCourse);
-        
-        // Adding JPanels to JTabbedPane
-        tabs.addTab("Listing", new JPanel());
-        tabs.addTab("Comment", new JTextArea(10, 40));
+		frame.setSize(200,200);
+		frame.setVisible(true);
 
-        tabs.addTab("Register", new JPanel());
-        tabs.addTab("Contact Us", new JPanel());
-
-        tabs.addTab("More..", new JPanel());
-
-        getContentPane().add(tabs);
-    }
-}
-
-
-class CoursePanel extends JPanel {
-    JButton addCourse, clear;
-
-    CoursePanel() {
-        addCourse = new JButton("Add Course");
-        clear = new JButton("Clear");
-
-        setLayout(new FlowLayout());
-
-        add(addCourse);
-        add(clear);
-    }
-}
-/*Creating SelectCoursePanel by extending JPanel*/
-class SelectCoursePanel extends JPanel {
-    JCheckBox java, swing, hibernate;
-
-    SelectCoursePanel() {
-        java = new JCheckBox("Java");
-        swing = new JCheckBox("Spring");
-        hibernate = new JCheckBox("Hibernate");
-
-        setLayout(new FlowLayout());
-        add(java);
-        add(swing);
-        add(hibernate);
-    }
-
-
-
-    public static void main(String args[]) throws Exception {
-    	JTabbedPaneExample frame = new JTabbedPaneExample();
-        frame.setSize(400, 400);
-        frame.setVisible(true);
-    }
+	}	
+	public static void main(String[] args) 
+	{
+		JTabbedPaneExample tbp = new JTabbedPaneExample();
+		tbp.createUI();		
+	}
 }

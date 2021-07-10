@@ -12,50 +12,43 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTabbedPane;
+import javax.swing.SwingUtilities;
 
 public class JComboBoxExample {
-	 private static void createAndShowGUI() {
-		 
-	      
-	        final JFrame frame = new JFrame("Split Pane Example");
-	 
-	     
-	        frame.setSize(500, 300);
-	        frame.setVisible(true);
-	        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-	 
-	      
-	        frame.getContentPane().setLayout(new GridLayout(1, 1));
-	 
-	        JTabbedPane tabbedPane = new JTabbedPane(JTabbedPane.TOP);
-	 
-	        tabbedPane.addTab("Java", makePanel("8am to 12pm"));
-	        tabbedPane.addTab("React", makePanel("2pm to 6pm"));
-	 
-	        frame.getContentPane().add(tabbedPane);
-	 
-	    }
-	 
-	    private static JPanel makePanel(String text) {
-	        JPanel p = new JPanel();
-	        p.add(new Label(text));
-	        p.setLayout(new GridLayout(1, 1));
-	        return p;
-	    }
-	 
-	    public static void main(String[] args) {
-	 
-	 
-	 
-	  javax.swing.SwingUtilities.invokeLater(new Runnable() {
-	 
-	public void run() {
-	 
-	    createAndShowGUI(); 
-	 
+	public static void main(String... ar)
+	{
+	SwingUtilities.invokeLater(new Runnable() {
+	public void run()
+	{
+	new A();
 	}
+	});
+
+	}//Closing the main method
+	}//Closing the class Combo
+
+
+	class A //implements ActionListener
+	{
+	String [] BRICS;
+	JFrame jf;
+
+	JComboBox<String> combo;
+
+	A()
+	{
+	BRICS = new String[]{"Russia", "India", "South Africa", "Brazil", "China"};
+
+
 	 
-	  });
-	    }
-	 
+	jf= new JFrame("JComboBox");
+	combo= new JComboBox<String>(BRICS);
+
+	jf.add(combo);
+
+	jf.setLayout(new FlowLayout());
+	jf.setSize(300,200);
+	jf.setVisible(true);
+	}
+
 }
